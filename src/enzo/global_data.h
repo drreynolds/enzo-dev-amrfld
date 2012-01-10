@@ -147,6 +147,7 @@ EXTERN int FastSiblingLocatorEntireDomain;
 			 11 = FlagCellsToBeRefinedByResistiveLength
                          12 = FlagCellsToBeRefinedByMustRefineRegion
 			 13 = FlagCellsToBeRefinedByMetallicity
+			 19 = FlagCellsToBeRefinedByRadiationGradient
  */
 
 EXTERN int CellFlaggingMethod[MAX_FLAGGING_METHODS];
@@ -867,6 +868,7 @@ EXTERN int RadiativeTransferFLD;
       3 => use the gFLDSplit module for single-group split FLD
       4 => use the MFProb, multi-frequency fully implicit module
       5 => use the MFSplit, multi-frequency split implicit module
+      6 => use the AMRFLDSplit, grey AMR-FLD split implicit module
 */
 EXTERN int ImplicitProblem;
 
