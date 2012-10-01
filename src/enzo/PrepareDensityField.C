@@ -27,6 +27,7 @@
  
 #include <stdio.h>
 #include "ErrorExceptions.h"
+#include "EnzoTiming.h"
 #include "performance.h"
 #include "macros_and_parameters.h"
 #include "typedefs.h"
@@ -46,15 +47,12 @@
 int DepositParticleMassField(HierarchyEntry *Grid, FLOAT Time = -1.0);
 
 int CommunicationBufferPurge(void);
-
 int CommunicationReceiveHandler(fluxes **SubgridFluxesEstimate[] = NULL,
 				int NumberOfSubgrids[] = NULL,
 				int FluxFlag = FALSE,
 				TopGridData* MetaData = NULL);
  
 int PrepareGravitatingMassField1(HierarchyEntry *Grid);
-
-
 #ifdef FAST_SIB
 int PrepareGravitatingMassField2a(HierarchyEntry *Grid, int grid1,
 				 SiblingGridList SiblingList[],

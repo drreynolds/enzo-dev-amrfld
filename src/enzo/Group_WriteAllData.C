@@ -25,7 +25,8 @@
 // This function writes out the data hierarchy (TopGrid), the External
 //   Boundary (Exterior), the TopGridData, and the global_data.
 #include "preincludes.h"
- 
+#include "EnzoTiming.h" 
+
 #ifdef USE_MPI
 #include "mpi.h"
 #endif /* USE_MPI */
@@ -36,7 +37,6 @@
 #include <stdio.h>
 #include "h5utilities.h"
 
- 
 #include "ErrorExceptions.h"
 #include "macros_and_parameters.h"
 #include "typedefs.h"
@@ -125,7 +125,9 @@ int Group_WriteAllData(char *basename, int filenumber,
 		 FLOAT WriteTime = -1, 
 		 int CheckpointDump = FALSE)
 {
- 
+
+  TIMER_START("Group_WriteAllData");
+
   char id[MAX_CYCLE_TAG_SIZE], *cptr, name[MAX_LINE_LENGTH];
   char dumpdirname[MAX_LINE_LENGTH];
   char dumpdirroot[MAX_LINE_LENGTH];
@@ -885,7 +887,8 @@ int Group_WriteAllData(char *basename, int filenumber,
 	    name, MetaData.CycleNumber, MetaData.Time, twrite0, (twrite1-twrite0));
     fclose(sptr);
   }
- 
+
+  TIMER_STOP("Group_WriteAllData"); 
   return SUCCESS;
 }
 
