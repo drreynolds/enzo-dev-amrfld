@@ -98,9 +98,9 @@ int AMRFLDSplit::RadiationSource(LevelHierarchyEntry *LevelArray[],
 		cellYc = x1L + (j-ghYl+0.5)*dx[1];      // y-center (comoving) for this cell
 		for (i=0; i<n3[0]+2*ghXl; i++) {
 		  cellXc = x0L + (i-ghXl+0.5)*dx[0];    // x-center (comoving) for this cell
-		  if ( (fabs(cellXc-SourceLocation[ibin][0]) < dx[0]) &&
-		       (fabs(cellYc-SourceLocation[ibin][1]) < dx[1]) &&
-		       (fabs(cellZc-SourceLocation[ibin][2]) < dx[2]) )
+		  if ( (fabs(cellXc-SourceLocation[isrc][0]) < dx[0]) &&
+		       (fabs(cellYc-SourceLocation[isrc][1]) < dx[1]) &&
+		       (fabs(cellZc-SourceLocation[isrc][2]) < dx[2]) )
 		    num_cells++;                        // cell is within source region
 		} // x-loop
 	      } // y-loop
@@ -115,9 +115,9 @@ int AMRFLDSplit::RadiationSource(LevelHierarchyEntry *LevelArray[],
 		cellYc = x1L + (j-ghYl+0.5)*dx[1];      // y-center (comoving) for this cell
 		for (i=ghXl; i<n3[0]+ghXl; i++) {
 		  cellXc = x0L + (i-ghXl+0.5)*dx[0];    // x-center (comoving) for this cell
-		  if ( (fabs(cellXc-SourceLocation[ibin][0]) < dx[0]) &&
-		       (fabs(cellYc-SourceLocation[ibin][1]) < dx[1]) &&
-		       (fabs(cellZc-SourceLocation[ibin][2]) < dx[2]) )
+		  if ( (fabs(cellXc-SourceLocation[isrc][0]) < dx[0]) &&
+		       (fabs(cellYc-SourceLocation[isrc][1]) < dx[1]) &&
+		       (fabs(cellZc-SourceLocation[isrc][2]) < dx[2]) )
 		    eta[(k*x1len + j)*x0len + i] += cell_energy;
 		} // x-loop
 	      } // y-loop
